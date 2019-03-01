@@ -1,0 +1,13 @@
+[Unit]
+Description=Log Pings
+
+[Service]
+Type=simple
+User=pi
+Restart=always
+RestartSec=1
+ExecStart=/home/pi/log.sh
+WorkingDirectory=/home/pi/
+
+[Install]
+WantedBy=multi-user.target
