@@ -8,7 +8,7 @@ function getStatus() {
     else
         status="DOWN"
     fi
-    echo "$(date)::$status" >> status.log
+    echo "$(date "+%a %d %b %T %Z %Y")::$status" >> status.log
 }
 
 while true
