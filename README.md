@@ -11,8 +11,18 @@ Enable service (will load on reboot):
 ```
 sudo systemctl enable log-pings
 ```
+Restart
+```
+sudo systemctl restart log-pings
+```
 
 Tail logs
 ```
 ssh pi@192.168.0.23 "tail -f status.log"
+```
+
+## Alt Method
+
+```
+cat /var/log/messages* | grep eth0
 ```
