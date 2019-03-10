@@ -9,14 +9,19 @@ last_time_went_online = current_time = None
 
 for line in open("status.log").readlines():
     log_entry = line.rstrip()
+    if log_entry.endswith('s'):
+        continue
+
     if 'UP' in log_entry:
         up_count = up_count + 1
         up = True
     if 'DOWN' in log_entry:
         down_count = down_count + 1
         up = False
+
     log_date = log_entry[0:log_entry.find('::')]
     current_time = datetime.strptime(log_date, '%a %d %b %H:%M:%S %Z %Y')
+
     if up is not previous_state:
         if previous_state_change_time is not None:
             duration = current_time - previous_state_change_time
