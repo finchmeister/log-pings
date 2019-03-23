@@ -26,3 +26,9 @@ ssh pi@192.168.0.23 "tail -f status.log"
 ```
 cat /var/log/messages* | grep eth0
 ```
+
+### Append skip to log
+
+```
+sed -ie 's/Sun 10 Mar 11:32:08 GMT 2019::DOWN/Sun 10 Mar 11:32:08 GMT 2019::DOWNs/' status.log
+```
