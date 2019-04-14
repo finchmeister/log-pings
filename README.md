@@ -11,14 +11,20 @@ Enable service (will load on reboot):
 ```
 sudo systemctl enable log-pings
 ```
-Restart
+Restart (to get going)
 ```
 sudo systemctl restart log-pings
 ```
-
-Tail logs
+View service logs
 ```
-ssh pi@192.168.0.23 "tail -f status.log"
+journalctl -u log-pings.service
+```
+
+## Commands
+
+```
+tail -f status.log
+python stats.py
 ```
 
 ## Alt Method
@@ -30,5 +36,5 @@ cat /var/log/messages* | grep eth0
 ### Append skip to log
 
 ```
-sed -ie 's/Sun 10 Mar 11:32:08 GMT 2019::DOWN/Sun 10 Mar 11:32:08 GMT 2019::DOWNs/' status.log
+sed -ie 's/Thu 28 Mar 15:03:33 GMT 2019::DOWN/Thu 28 Mar 15:03:33 GMT 2019::DOWNs/' status.log
 ```

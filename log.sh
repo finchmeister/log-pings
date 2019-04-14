@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
+
 function getStatus() {
     fail=0
     n=0
-    until [[ ${n} -ge 3 ]]
+    until [[ ${n} -ge 5 ]]
     do
-      ping -c1 google.co.uk &> /dev/null && break
+      ping -c1 google.co.uk &> /dev/null && fail=0 && break
       fail=1
       n=$[$n+1]
-      sleep 30
+      sleep 15
     done
 
     if [[ ${fail} -eq 0 ]]
@@ -24,5 +25,5 @@ function getStatus() {
 while true
 do
     getStatus
-    sleep 10
+    sleep 30
 done
